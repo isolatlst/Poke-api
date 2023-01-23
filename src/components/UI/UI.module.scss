@@ -1,0 +1,58 @@
+@import "./src/styles/variables";
+
+.search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 45vw;
+    height: 100%;
+    background: $color-dark;
+    transform: skew(-30deg);
+
+    input {
+        width: 80%;
+        background: transparent;
+        transform: skew(30deg);
+
+        &, &::placeholder {
+            font-size: calc(var(--index)*1.25);
+            color: $color-light;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        content: '';
+        width: calc(var(--index)*2.5);
+        background: url("../../assets/search.svg") 0 50% /contain no-repeat;
+        aspect-ratio: auto 1/1;
+        transform: skew(30deg) translateY(-50%);
+        cursor: pointer;
+    }
+}
+
+
+.switch {
+    padding: 0.25rem;
+    display: inline-flex;
+    border-radius: 9999px;
+    background-color: $color-dark;
+
+    &__label {
+        padding: 0.25rem 0.5rem;
+        border-radius: 9999px;
+        font-size: var(--index);
+        color: $color-light;
+        cursor: pointer;
+    }
+
+    &__label:has( > input:checked) {
+        transition: background-color 1s ease 0s;
+        background-color: #3b82f6;
+        color: $color-light;
+    }
+
+    input {display: none;}
+}

@@ -1,0 +1,32 @@
+$color-light: #FFFFFF;
+$color-dark: #1A1A1D;
+$color-green: #C8FF29;
+$color-purple: #C5AFFF;
+
+$fz-title: 2em;
+$fz-text: 20px;
+
+@mixin scroll() {
+  overflow-x: overlay;
+  overflow-y: overlay;
+  scrollbar-width: 3px;
+  scrollbar-height: 3px;
+  scrollbar-color: $color-green transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: $color-green;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $color-green;
+  }
+}
+
+:root {
+  --index: calc(1vh + 1vw);
+}

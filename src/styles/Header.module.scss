@@ -1,0 +1,21 @@
+@import "variables";
+
+.header {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    grid-area: header;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    img {
+        max-height: 90%;
+        aspect-ratio: 1/1;
+    }
+}

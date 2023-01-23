@@ -1,0 +1,44 @@
+.navigation {
+    position: relative;
+    top: -25px;
+    margin: 10px auto 5px;
+    display: grid;
+    align-content: start;
+    grid-template-columns: 30px 1fr 30px;
+    align-self: center;
+    grid-area: navigation;
+    width: 355px;
+    opacity: 0;
+    animation: navigation_appearance 1s ease-out 1s 1 forwards;
+
+    .navigation__pages {
+        display: grid;
+        justify-content: center;
+    }
+}
+
+@keyframes navigation_appearance {
+    from { opacity: 0; top: -25px;}
+    50% { top: 0px; }
+    to { opacity: 1; top: 0px;}
+}
+
+.navigation__page, .navigation__page_selected, .button {
+    padding: 2.5px;
+    margin: 0px 2.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.button { margin: 0px; }
+.disabled { background: rgba(0, 0, 0, 0.25); cursor: auto; }
+
+.navigation__page_selected {
+    background: #000;
+    color: #fff;
+}
+

@@ -1,0 +1,10 @@
+@import "variables";
+
+.pokemons{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fit, 100px);
+    grid-area: content;
+    grid-gap: 15px;
+}

@@ -1,0 +1,13 @@
+@import "variables";
+
+.App {
+    display: grid;
+    grid-template-areas:
+    'header'
+    'navigation'
+    'content';
+    grid-template-rows: 50px 45px 1fr;
+    width: 100vw;
+    height: 100vh;
+    @include scroll();
+}
