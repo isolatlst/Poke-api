@@ -1,5 +1,6 @@
 {
   "name": "pokeapi",
+  "homepage": "http://isolatlst.github.io/poke-api",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -45,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.57.1",
     "typescript": "^4.9.4"
   }
