@@ -43,7 +43,7 @@
     &__label {
         padding: 0.25rem 0.5rem;
         border-radius: 9999px;
-        font-size: var(--index);
+        font-size: calc(var(--index)*.95);
         color: $color-light;
         cursor: pointer;
     }

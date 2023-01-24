@@ -1,18 +1,12 @@
 import React from 'react';
 import classes from './styles/App.module.scss';
+import {PaginationType, ValueOfPokemonsTypes} from "./types";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import {PaginationType, ValueOfPokemonsTypes} from "./types";
 import Footer from "./components/Footer";
-
-
-export const pokemonTypes = [
-    'bug', 'water', 'grass', 'fire',
-    'normal', 'poison', 'electric', 'ground',
-    'fairy', 'fighting', 'psychic', 'ghost',
-    'rock', 'ice', 'flying', 'dark',
-    'dragon', 'steel', 'unknown', 'shadow',
-] as const
+import PokemonPage from "./pages/PokemonPage";
+import Wrapper from "./pages/Wrapper";
 
 
 const App = () => {
@@ -23,16 +17,29 @@ const App = () => {
 
     return (
         <div className={classes.App} ref={appRef}>
-            <Header togglePaginationType={togglePaginationType}
-                    setSearchByNameQuery={setSearchByNameQuery}
-            />
-            <Home appRef={appRef} paginationType={paginationType}
-                  searchByNameQuery={searchByNameQuery}
-                  searchByTypeQuery={searchByTypeQuery}
-            />
-            <Footer searchByTypeQuery={searchByTypeQuery}
-                    setSearchByTypeQuery={setSearchByTypeQuery}
-            />
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <React.Suspense fallback={<div>Loading...</div>}>
+                    <Routes>
+                        <Route path='/' element={
+                            <Wrapper paginationType={paginationType}>
+                                <Header togglePaginationType={togglePaginationType}
+                                        setSearchByNameQuery={setSearchByNameQuery}
+                                />
+                                <Home appRef={appRef} paginationType={paginationType}
+                                      searchByNameQuery={searchByNameQuery}
+                                      searchByTypeQuery={searchByTypeQuery}
+                                />
+                                <Footer setSearchByTypeQuery={setSearchByTypeQuery}/>
+                            </Wrapper>
+                        }/>
+                        <Route path='pokemon/:id' element={
+                            <Wrapper paginationType={paginationType}>
+                                <PokemonPage />
+                            </Wrapper>
+                        }/>
+                    </Routes>
+                </React.Suspense>
+            </BrowserRouter>
         </div>
     );
 }

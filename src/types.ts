@@ -1,21 +1,17 @@
-import {pokemonTypes} from "./App";
-
 export type PokemonType = {
     id: number
     name: string
     photo: string | undefined
     second_photo?: undefined | string
     types: Array<string> // types: Array<PokemonTypes>
-    //sprites:{
-    //  other:{
-    //      dream_world:{
-    //          front_default: string ---> photo
-    //      }
-    //      home:{
-    //          front_default: string ---> second_photo
-    //      }
-    //  }
-    //}
+
+    height: number
+    weight: number
+    base_experience: number
+    stats: Array<{ // stats: Array<PokemonStats>
+        name: string
+        base_stat: number
+    }>
 }
 
 export type PokemonTypes = {
@@ -25,6 +21,23 @@ export type PokemonTypes = {
         url: string
     }
 }
+export type PokemonStats = {
+    base_stat: number
+    effort: number
+    stat: {
+        name: string
+        url: string
+    }
+}
+
+
+export const pokemonTypes = [
+    'bug', 'water', 'grass', 'fire',
+    'normal', 'poison', 'electric', 'ground',
+    'fairy', 'fighting', 'psychic', 'ghost',
+    'rock', 'ice', 'flying', 'dark',
+    'dragon', 'steel', 'unknown', 'shadow',
+] as const
 
 export type ValueOfPokemonsTypes = typeof pokemonTypes[keyof typeof pokemonTypes];
 

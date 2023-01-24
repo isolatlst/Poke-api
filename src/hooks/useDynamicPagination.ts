@@ -20,7 +20,7 @@ const UseDynamicPagination = ({count, limit, offset, appRef, isActive}
     }, [count, limit, offset, isActive])
 
     const scrollHndlr = () => {
-        if (appRef.current!.scrollHeight - (appRef.current!.scrollTop + window.innerHeight) < 10
+        if (appRef.current!.scrollHeight - (appRef.current!.scrollTop + window.innerHeight) < 1
             && limit * offset <= count) {
             dispatch(pokeACs.setOffset(offset + 1))
         }

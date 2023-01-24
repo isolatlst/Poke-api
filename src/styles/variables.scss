@@ -2,9 +2,8 @@ $color-light: #FFFFFF;
 $color-dark: #1A1A1D;
 $color-green: #C8FF29;
 $color-purple: #C5AFFF;
-
-$fz-title: 2em;
-$fz-text: 20px;
+$color-dark-orange: #f3533b;
+$color-light-orange: #fb7248;
 
 @mixin scroll() {
   overflow-x: overlay;

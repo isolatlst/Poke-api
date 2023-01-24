@@ -1,0 +1,114 @@
+@import "variables";
+
+.poke_page {
+    padding: 10px;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(120deg, $color-light 0% 10%,
+            $color-dark-orange 10% 20%, $color-light-orange 20% 80%,
+            $color-dark-orange);
+
+    > a {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 50%;
+        font-size: 10px;
+        background: $color-dark;
+        color: $color-light;
+
+        &:visited { color: $color-light; }
+    }
+
+    span, b {
+        padding: 5px;
+        color: $color-light;
+        text-transform: capitalize;
+    }
+
+    &__body {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 50%;
+
+        img {
+            margin: 0px auto;
+            width: 75%;
+            min-width: 270px;
+            filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .5));
+        }
+        > div {
+            min-width: 350px;
+            max-width: 500px;
+            @media (max-width: 375px) {
+                min-width: 300px;
+            }
+        }
+    }
+
+    &__name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            height: 100%;
+            line-height: 30px;
+
+            &:first-child{
+                width: 30%;
+                color: $color-dark;
+                background: $color-light;
+            }
+
+            &:last-child{
+                width: 70%;
+                text-align: right;
+                background: linear-gradient(120deg, $color-light 0% 10%,
+                        $color-dark 10%);
+            }
+        }
+    }
+
+    &__info, &__stats {
+        margin: 10px 0px;
+        p {
+            display: flex;
+            width: 100%;
+
+            span, b { width: 50%; }
+            b { text-align: right; }
+        }
+    }
+
+    &__info {
+        span, b { border-bottom: .25px solid rgba(150, 150, 150, .25); }
+        span { background: rgb(180, 180, 180); }
+
+        b {
+            color: $color-dark;
+            background: $color-light;
+        }
+    }
+
+    &__stats {
+        span, b {
+            border-bottom: .25px solid rgba(255, 255, 255, .5);
+            background: rgb(125, 125, 125);
+        }
+    }
+}

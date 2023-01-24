@@ -1,7 +1,7 @@
 import {call, put, takeEvery} from 'redux-saga/effects'
 import axios from "axios";
 import {pokeACs, pokeACSaga} from "../redux/poke-ac";
-import {PokemonType, PokemonTypes} from "../types";
+import {PokemonStats, PokemonType, PokemonTypes} from "../types";
 
 const SERVER_URL = 'https://pokeapi.co/api/v2/pokemon'
 
@@ -29,7 +29,14 @@ function* fetchPokeWorker({start, end, paginationType}: ReturnType<typeof pokeAC
                 name: data.name,
                 photo: data.sprites.other.dream_world.front_default,
                 second_photo: data.sprites.other.home.front_default,
-                types: data.types.map((item: PokemonTypes) => item.type.name)
+                types: data.types.map((item: PokemonTypes) => item.type.name),
+                height: data.height,
+                weight: data.weight,
+                base_experience: data.base_experience,
+                stats: data.stats.map((item: PokemonStats) => ({
+                    name: item.stat.name,
+                    base_stat: item.base_stat
+                }))
             })
         } catch (e) {
             continue

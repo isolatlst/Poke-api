@@ -7,7 +7,6 @@ const initialState = {
     count: 0,             // ширина карточки + gap    // высота карточки + gap
     limit: Math.max(Math.floor((window.innerWidth / 185) * (window.innerHeight / 115)), 15),
     offset: 0,
-    // limit: (Math.floor(window.innerWidth / 185)) * (Math.floor(window.innerHeight / 115)),
 }
 
 const pokeReducer = (state = initialState, action: pokeActionsType): InitialStateType => {

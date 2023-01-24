@@ -1,22 +1,18 @@
 import React from 'react';
 import cl from '../styles/Footer.module.scss'
-import {pokemonTypes} from "../App";
-import {ValueOfPokemonsTypes} from "../types";
+import {pokemonTypes, ValueOfPokemonsTypes} from "../types";
 
 type PropType = {
-    searchByTypeQuery: ValueOfPokemonsTypes | ''
     setSearchByTypeQuery: (value: ValueOfPokemonsTypes | '') => void
 }
 
 
-const Footer: React.FC<PropType> = ({setSearchByTypeQuery, searchByTypeQuery}) => {
+const Footer: React.FC<PropType> = ({setSearchByTypeQuery}) => {
     const setSearchByTypeValue = (e: React.BaseSyntheticEvent) => {
         if (e.target.localName === 'span') {
-            if (searchByTypeQuery === e.target.innerHTML) {
-                setSearchByTypeQuery('')
-            } else {
-                setSearchByTypeQuery(e.target.innerHTML)
-            }
+            setSearchByTypeQuery((prevValue: ValueOfPokemonsTypes | '') => {
+                return prevValue === e.target.innerHTML ? '' : e.target.innerHTML
+            })
         }
     }
 
