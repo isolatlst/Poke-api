@@ -1,10 +1,10 @@
 import React from 'react';
-import PokemonCard from "../components/PokemonCard";
-import cl from '../styles/Home.module.scss'
-import {useAppSelector} from "../redux/store";
-import useDynamicPagination from "../hooks/useDynamicPagination";
-import {PaginationType, ValueOfPokemonsTypes} from "../types";
-import Pagination from "../components/Pagination";
+import PokemonCard from "../../components/PokemonCard/PokemonCard";
+import cl from './Home.module.scss'
+import {useAppSelector} from "../../redux/store";
+import useDynamicPagination from "../../hooks/useDynamicPagination";
+import {PaginationType, ValueOfPokemonsTypes} from "../../types";
+import Pagination from "../../components/Pagination/Pagination";
 
 type PropType = {
     appRef: React.RefObject<HTMLDivElement>

@@ -14,14 +14,14 @@ export type PokemonType = {
     }>
 }
 
-export type PokemonTypes = {
+export type PokemonTypesType = {
     slot: number
     type: {
         name: string
         url: string
     }
 }
-export type PokemonStats = {
+export type PokemonStatsType = {
     base_stat: number
     effort: number
     stat: {

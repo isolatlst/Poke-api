@@ -1,10 +1,10 @@
 import React from 'react';
-import cl from '../styles/Header.module.scss'
-import pokeball from '../assets/pokeball.svg'
-import {PaginationType} from "../types";
-import Search from "./UI/Search";
-import Switch from "./UI/Switch";
-import {useAppSelector} from "../redux/store";
+import cl from './Header.module.scss'
+import pokeball from '../../assets/pokeball.svg'
+import {PaginationType} from "../../types";
+import Search from "../UI/Search";
+import Switch from "../UI/Switch";
+import {useAppSelector} from "../../redux/store";
 
 type PropType = {
     togglePaginationType: (type: PaginationType) => void

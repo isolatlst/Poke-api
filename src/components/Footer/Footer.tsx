@@ -1,6 +1,6 @@
 import React from 'react';
-import cl from '../styles/Footer.module.scss'
-import {pokemonTypes, ValueOfPokemonsTypes} from "../types";
+import cl from './Footer.module.scss'
+import {pokemonTypes, ValueOfPokemonsTypes} from "../../types";
 
 type PropType = {
     setSearchByTypeQuery: (value: ValueOfPokemonsTypes | '') => void

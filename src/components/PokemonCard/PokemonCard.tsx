@@ -1,7 +1,7 @@
 import React from 'react';
-import cl from "../styles/PokemonCard.module.scss";
-import pokeball from "../assets/pokeball.svg"
-import {PokemonType} from "../types";
+import cl from "./PokemonCard.module.scss";
+import pokeball from "../../assets/pokeball.svg"
+import {PokemonType} from "../../types";
 import {NavLink} from "react-router-dom";
 
 type PropType = Omit<PokemonType,

@@ -1,9 +1,9 @@
 import React from 'react'
-import cl from '../styles/Pagination.module.scss'
-import {pokeACs} from "../redux/poke-ac";
+import cl from './Pagination.module.scss'
+import {pokeACs} from "../../redux/poke-ac";
 import {useDispatch} from "react-redux";
 import PaginateBtn from "./PaginateBtn";
-import {PaginationPropType} from "../types";
+import {PaginationPropType} from "../../types";
 
 
 type PropsType = PaginationPropType & {portionSize?: number}

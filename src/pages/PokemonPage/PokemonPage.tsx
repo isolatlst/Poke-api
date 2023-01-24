@@ -1,8 +1,8 @@
 import React from 'react';
-import cl from "../styles/PokemonPage.module.scss";
+import cl from "./PokemonPage.module.scss";
 import {NavLink, useParams} from "react-router-dom";
-import {useAppSelector} from "../redux/store";
-import pokeball from "../assets/pokeball.svg"
+import {useAppSelector} from "../../redux/store";
+import pokeball from "../../assets/pokeball.svg"
 
 
 const PokemonPage = () => {

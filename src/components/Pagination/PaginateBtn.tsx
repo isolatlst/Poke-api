@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from "../styles/Pagination.module.scss";
+import cl from "./Pagination.module.scss";
 
 type PropType = {
     text: string

@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './styles/App.module.scss';
-import {PaginationType, ValueOfPokemonsTypes} from "./types";
+import classes from './App.module.scss';
+import {PaginationType, ValueOfPokemonsTypes} from "../../types";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Footer from "./components/Footer";
-import PokemonPage from "./pages/PokemonPage";
-import Wrapper from "./pages/Wrapper";
+import Header from "../Header/Header";
+import Home from "../../pages/Home/Home";
+import Footer from "../Footer/Footer";
+import PokemonPage from "../../pages/PokemonPage/PokemonPage";
+import Wrapper from "../../pages/Wrapper";
 
 
 const App = () => {
