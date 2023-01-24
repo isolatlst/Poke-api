@@ -4,7 +4,7 @@ export const getLimits = (offset: number, paginationType: PaginationType) => {
     let finalOffset = 0
     let finalLimit = 0
     switch (paginationType) {
-        case "manual": {
+        case "manual": { // ширина карточки + gap                // высота карточки + gap
             finalLimit = Math.ceil(window.innerWidth / 190) * Math.floor(window.innerHeight / 115)
             finalOffset = offset
             break

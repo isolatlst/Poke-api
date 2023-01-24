@@ -4,8 +4,8 @@ import {PokemonType} from "../types";
 type InitialStateType = typeof initialState
 const initialState = {
     pokemons: [] as Array<PokemonType>,
-    count: 0,             // ширина карточки + gap    // высота карточки + gap
-    limit: Math.max(Math.floor((window.innerWidth / 185) * (window.innerHeight / 115)), 15),
+    count: 0,
+    limit: 0,
     offset: 0,
 }
 

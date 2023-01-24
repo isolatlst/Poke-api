@@ -17,12 +17,12 @@ const Switch: React.FC<PropType> = (props) => {
         <div className={cl.switch}>
             <label className={cl.switch__label} title={props.first_title}>
                 <input type="radio" name={props.name} value={props.first_value}
-                       onClick={e => props.callback(e.currentTarget.value)}/>
+                       onClick={() => props.callback(props.first_value)}/>
                 {props.first_text}
             </label>
             <label className={cl.switch__label} title={props.second_title}>
                 <input type="radio" name={props.name} value={props.second_value} defaultChecked
-                       onClick={e => props.callback(e.currentTarget.value)} />
+                       onClick={() => props.callback(props.second_value)} />
                 {props.second_text}
             </label>
         </div>

@@ -14,6 +14,7 @@ type PropType = {
 const Header: React.FC<PropType> = ({togglePaginationType, setSearchByNameQuery}) => {
     const count = useAppSelector(state => state.pokemons.count)
     const totalCount = useAppSelector(state => state.pokemons.pokemons.length)
+
     return (
         <div className={cl.header}>
             <div className={cl.header__item}>

@@ -30,7 +30,6 @@ const Wrapper: React.FC<PropType> = ({children, paginationType}) => {
     }, [paginationType])
 
 
-
     return <>{children}</>
 };
 
