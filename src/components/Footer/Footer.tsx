@@ -1,25 +1,28 @@
 import React from 'react';
 import cl from './Footer.module.scss'
 import {pokemonTypes, ValueOfPokemonsTypes} from "../../types";
+import {FilterContext} from "../../context/FilterContext";
 
-type PropType = {
-    setSearchByTypeQuery: (value: ValueOfPokemonsTypes | '') => void
-}
+const Footer = () => {
+    const {filter, setFilter} = React.useContext(FilterContext)
 
-
-const Footer: React.FC<PropType> = ({setSearchByTypeQuery}) => {
-    const setSearchByTypeValue = (e: React.BaseSyntheticEvent) => {
-        if (e.target.localName === 'span') {
-            setSearchByTypeQuery((prevValue: ValueOfPokemonsTypes | '') => {
-                return prevValue === e.target.innerHTML ? '' : e.target.innerHTML
-            })
+    const setSearchByTypeValue = (type: ValueOfPokemonsTypes | '') => {
+        if (filter.type === type) {
+            setFilter({...filter, type: ''})
+        } else {
+            setFilter({...filter, type: type})
         }
     }
 
     return (
-        <div className={cl.footer} onClick={setSearchByTypeValue}>
+        <div className={cl.footer}>
             {pokemonTypes.map(type => (
-                <span key={type} className={type}>{type}</span>
+                <span key={type}
+                      className={type}
+                      onClick={() => setSearchByTypeValue(type)}
+                >
+                    {type}
+                </span>
             ))}
         </div>
     );

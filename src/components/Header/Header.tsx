@@ -1,19 +1,22 @@
 import React from 'react';
 import cl from './Header.module.scss'
 import pokeball from '../../assets/pokeball.svg'
-import {PaginationType} from "../../types";
-import Search from "../UI/Search";
-import Switch from "../UI/Switch";
+import Search from "../UI/Search/Search";
+import Switch from "../UI/Switch/Switch";
 import {useAppSelector} from "../../redux/store";
+import {FilterContext} from "../../context/FilterContext";
+import {PaginationContext} from "../../context/PaginationContext";
 
-type PropType = {
-    togglePaginationType: (type: PaginationType) => void
-    setSearchByNameQuery: (value: string) => void
-}
 
-const Header: React.FC<PropType> = ({togglePaginationType, setSearchByNameQuery}) => {
+const Header = () => {
     const count = useAppSelector(state => state.pokemons.count)
     const totalCount = useAppSelector(state => state.pokemons.pokemons.length)
+    const {filter, setFilter} = React.useContext(FilterContext)
+    const {togglePaginationType} = React.useContext(PaginationContext)
+
+    const setSearchByNameQuery = (value: string) => {
+        setFilter({...filter, query: value})
+    }
 
     return (
         <div className={cl.header}>

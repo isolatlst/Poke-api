@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from "./PokemonCard.module.scss";
+import cl from "./PokemonItem.module.scss";
 import pokeball from "../../assets/pokeball.svg"
 import {PokemonType} from "../../types";
 import {NavLink} from "react-router-dom";
@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 type PropType = Omit<PokemonType,
     'height' | 'weight' | 'base_experience' | 'stats'>
 
-const PokemonCard: React.FC<PropType> = React.memo(
+const PokemonItem: React.FC<PropType> = React.memo(
     ({name, types, photo, id}) => {
         return (
             <NavLink to={`pokemon/${id}`} className={`${cl.card} ${[types[0]]}`}>
@@ -27,4 +27,4 @@ const PokemonCard: React.FC<PropType> = React.memo(
         );
     });
 
-export default PokemonCard;
+export default PokemonItem;

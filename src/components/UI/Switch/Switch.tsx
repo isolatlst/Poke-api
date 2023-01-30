@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from "./UI.module.scss";
+import cl from "./Switch.module.scss";
 
 type PropType = {
     name: string

@@ -1,8 +1,9 @@
 import React from 'react';
 import cl from "./PokemonPage.module.scss";
-import {NavLink, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useAppSelector} from "../../redux/store";
 import pokeball from "../../assets/pokeball.svg"
+import GoToMain from "../../components/UI/GoToMain/GoToMain";
 
 
 const PokemonPage = () => {
@@ -16,31 +17,33 @@ const PokemonPage = () => {
         </p>
     }
 
-    return pokemon ? (
-        <div className={cl.poke_page}>
-            <div className={cl.poke_page__body}>
-                <div className={cl.poke_page__item}>
-                    <img src={photo} alt=""/>
+    return (
+        pokemon ?
+            <div className={cl.poke_page}>
+                <div className={cl.poke_page__body}>
+                    <div className={cl.poke_page__item}>
+                        <img src={photo} alt=""/>
+                    </div>
+                    <div className={cl.poke_page__item}>
+                        <div className={cl.poke_page__name}>
+                            <span>No. {pokemon.id}</span>
+                            <span>{pokemon.name}</span>
+                        </div>
+                        <div className={cl.poke_page__info}>
+                            <TableCell title='Base exp' value={pokemon.base_experience}/>
+                            <TableCell title='Weight' value={pokemon.weight}/>
+                            <TableCell title='Height' value={pokemon.height}/>
+                            <TableCell title='Types' value={`${pokemon.types[0]} ${pokemon.types[1] ? pokemon.types[1] : ''}`}/>
+                        </div>
+                        <div className={cl.poke_page__stats}>
+                            {pokemon.stats.map(stat => <TableCell key={stat.name} title={stat.name} value={stat.base_stat}/>)}
+                        </div>
+                    </div>
                 </div>
-                <div className={cl.poke_page__item}>
-                    <div className={cl.poke_page__name}>
-                        <span>No. {pokemon.id}</span>
-                        <span>{pokemon.name}</span>
-                    </div>
-                    <div className={cl.poke_page__info}>
-                        <TableCell title='Base exp' value={pokemon.base_experience}/>
-                        <TableCell title='Weight' value={pokemon.weight}/>
-                        <TableCell title='Height' value={pokemon.height}/>
-                        <TableCell title='Types' value={`${pokemon.types[0]} ${pokemon.types[1] ? pokemon.types[1] : ''}`}/>
-                    </div>
-                    <div className={cl.poke_page__stats}>
-                        {pokemon.stats.map(stat => <TableCell key={stat.name} title={stat.name} value={stat.base_stat}/>)}
-                    </div>
-                </div>
+                <GoToMain />
             </div>
-            <NavLink to='/'>╳</NavLink>
-        </div>
-    ) : <>Something wrong</>;
+            : null
+    )
 };
 
 export default PokemonPage;

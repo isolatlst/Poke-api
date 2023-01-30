@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from "./UI.module.scss";
+import cl from "./Search.module.scss";
 
 
 type PropType = {

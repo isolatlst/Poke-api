@@ -5,8 +5,9 @@
     grid-template-areas:
     'header'
     'navigation'
-    'content';
-    grid-template-rows: 55px auto 1fr;
+    'content'
+    'InterObserv';
+    grid-template-rows: 55px auto 1fr 1px;
     width: 100vw;
     height: 100vh;
     @include scroll();

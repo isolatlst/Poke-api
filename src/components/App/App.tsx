@@ -1,45 +1,27 @@
 import React from 'react';
 import classes from './App.module.scss';
-import {PaginationType, ValueOfPokemonsTypes} from "../../types";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Header from "../Header/Header";
-import Home from "../../pages/Home/Home";
-import Footer from "../Footer/Footer";
-import PokemonPage from "../../pages/PokemonPage/PokemonPage";
+import {PaginationType} from "../../types";
 import Wrapper from "../../pages/Wrapper";
+import {FilterContext, FilterType} from "../../context/FilterContext";
+import {PaginationContext} from "../../context/PaginationContext";
+import AppRouter from "./AppRouter";
 
 
 const App = () => {
-    const appRef = React.useRef(null)
     const [paginationType, togglePaginationType] = React.useState<PaginationType>('dynamic')
-    const [searchByNameQuery, setSearchByNameQuery] = React.useState('')
-    const [searchByTypeQuery, setSearchByTypeQuery] = React.useState<ValueOfPokemonsTypes | ''>('')
+    const [filter, setFilter] = React.useState<FilterType>({type: '', query: ''})
 
     return (
-        <div className={classes.App} ref={appRef}>
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
-                <React.Suspense fallback={<div>Loading...</div>}>
-                    <Routes>
-                        <Route path='/' element={
-                            <Wrapper paginationType={paginationType}>
-                                <Header togglePaginationType={togglePaginationType}
-                                        setSearchByNameQuery={setSearchByNameQuery}
-                                />
-                                <Home appRef={appRef} paginationType={paginationType}
-                                      searchByNameQuery={searchByNameQuery}
-                                      searchByTypeQuery={searchByTypeQuery}
-                                />
-                                <Footer setSearchByTypeQuery={setSearchByTypeQuery}/>
-                            </Wrapper>
-                        }/>
-                        <Route path='pokemon/:id' element={
-                            <Wrapper paginationType={paginationType}>
-                                <PokemonPage />
-                            </Wrapper>
-                        }/>
-                    </Routes>
-                </React.Suspense>
-            </BrowserRouter>
+        <div className={classes.App}>
+            <FilterContext.Provider value={{filter, setFilter}}>
+                <PaginationContext.Provider value={{paginationType, togglePaginationType}}>
+
+                    <Wrapper paginationType={paginationType}>
+                        <AppRouter/>
+                    </Wrapper>
+                    
+                </PaginationContext.Provider>
+            </FilterContext.Provider>
         </div>
     );
 }
