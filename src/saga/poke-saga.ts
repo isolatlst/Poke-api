@@ -5,8 +5,8 @@ import {PokemonStatsType, PokemonType, PokemonTypesType} from "../types";
 
 const SERVER_URL = 'https://pokeapi.co/api/v2/pokemon'
 
-const fetchCount = () => axios.get(`${SERVER_URL}?limit=1&offset=0`)
-const fetchPoke = (id: number) => axios.get(`${SERVER_URL}/${id}`)
+const fetchCount = () => axios.get<PokemonType[]>(`${SERVER_URL}?limit=1&offset=0`)
+const fetchPoke = (id: number) => axios.get<PokemonType>(`${SERVER_URL}/${id}`)
 
 
 

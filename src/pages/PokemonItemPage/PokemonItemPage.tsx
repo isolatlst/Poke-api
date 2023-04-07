@@ -1,12 +1,12 @@
 import React from 'react';
-import cl from "./PokemonPage.module.scss";
+import cl from "./PokemonItemPage.module.scss";
 import {useParams} from "react-router-dom";
 import {useAppSelector} from "../../redux/store";
 import pokeball from "../../assets/pokeball.svg"
 import GoToMain from "../../components/UI/GoToMain/GoToMain";
 
 
-const PokemonPage = () => {
+const PokemonItemPage = () => {
     const {id} = useParams()
     const pokemon = useAppSelector(state => state.pokemons.pokemons.find(poke => poke.id === Number(id)))
     const photo = pokemon?.photo || pokemon?.second_photo || pokeball
@@ -46,4 +46,4 @@ const PokemonPage = () => {
     )
 };
 
-export default PokemonPage;
+export default PokemonItemPage;

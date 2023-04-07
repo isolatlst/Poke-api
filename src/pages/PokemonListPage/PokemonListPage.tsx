@@ -1,13 +1,13 @@
 import React from 'react';
 import PokemonItem from "../../components/PokemonItem/PokemonItem";
-import cl from './Home.module.scss'
+import cl from './PokemonListPage.module.scss'
 import {useAppSelector} from "../../redux/store";
 import {FilterContext} from "../../context/FilterContext";
 import {useFilter} from "../../hooks/useFilter";
 import WithPagination from "../WithPagination";
 
 
-const Home = () => {
+const PokemonListPage = () => {
     const pokemons = useAppSelector(state => state.pokemons.pokemons)
     const {filter} = React.useContext(FilterContext)
     const sortedPokemons = useFilter(pokemons, filter)
@@ -24,4 +24,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default PokemonListPage;
